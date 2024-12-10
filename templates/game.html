@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'css/game.css' %}">
+
+  <script defer src="{% static 'JavaScript/game.js' %}"></script>
+  <title>Jogo da Memória</title>
+</head>
+
+<body>
+
+  <main>
+
+    <header>
+      <span class="player"> </span>
+      <span>Tentativas: <span class="tentativas"> 00</span></span>
+      <span>Tempo: <span class="timer"> 00</span></span>
+    </header>
+    <div class="grid"></div>
+
+  </main>
+  {% comment %} <div style="display: none;"> {% endcomment %}
+    <form id="adicionar" action="{% url 'add' %}" method="POST">
+      {% csrf_token %}
+      <input id="nomeJogador" type="text" name="nomeJogador">
+      <input id="tentativas" type="text" name="tentativas">
+      <input id="tempo" type="text" name="tempo">
+    </form>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <p>Alunas: Willana Maria, Maria Isabelle e Ana Beatriz</p>
+      <p>Disciplina: Programação para Internet</p>
+      <p>Professor: Marcelo Figueiredo Barbosa Júnior</p>
+      <p>IFRN - Campus Santa Cruz/RN</p>
+      <p>Todos os direitos reservados ⓒ</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

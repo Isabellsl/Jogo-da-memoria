@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script defer src="{% static 'JavaScript/login.js' %}"></script>
+
+    <title>Jogo da Memória</title>
+</head>
+
+<body>
+    <form class="login-form" method="POST" action="{% url 'game' %}">
+        {% csrf_token %}
+
+        <div class="login__header">
+            <img src="{% static 'images/cerebrinho.png' %}" alt="Game Logo">
+            <h1>Jogo da Memória</h1>
+        </div>
+
+        <input type="text" name="username" placeholder="Name" class="login__input">
+        
+        <button type="submit" class="login__button" disabled>Play</button>
+        
+        <button type="button" onclick="window.location.href='ranking'" class="ranking__button">Ranking</button>
+    </form>
+</body>
+
+</html>

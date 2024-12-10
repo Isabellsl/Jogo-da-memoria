@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ranking</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/ranking.css' %}" />
+  </head>
+  <body>
+    <div class="voltar">
+        <button type="button" onclick="window.location.href='/'">Voltar</button>
+    </div>
+    <div class="ranking">
+      <table>
+        <thead>
+          <div>
+            <th>
+              <p>Posicao</p>
+            </th>
+            <th>
+              <p>Nome</p>
+            </th>
+            <th>
+              <p>Flips</p>
+            </th>
+            <th>
+              <p>Tempo</p>
+            </th>
+            <th>
+              <p>Data Hora</p>
+            </th>
+          </div>
+        </thead>
+        {% for x in jogadores %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{x.nomeJogador}}</td>
+          <td>{{x.tentativas}}</td>
+          <td>{{x.tempo}} seg</td>
+          <td>{{x.dataHora}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <footer id="footer2">
+      <button id="cancelar">Done</button>
+    </footer>
+  </body>
+</html>
